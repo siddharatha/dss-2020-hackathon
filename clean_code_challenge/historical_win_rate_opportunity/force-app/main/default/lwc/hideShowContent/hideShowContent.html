@@ -1,0 +1,23 @@
+<!--
+  @File Name          : hideShowContent.html
+  @Description        : 
+  @Author             : Siddharatha Nagavarapu (sesa206167)
+  @Group              : 
+  @Last Modified By   : Siddharatha Nagavarapu (sesa206167)
+  @Last Modified On   : 1/20/2020, 2:09:44 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    1/20/2020   Siddharatha Nagavarapu (sesa206167)     Initial Version
+-->
+<template>
+    <lightning-button
+        variant="base"
+        icon-name={iconName}
+        label={label}
+        onclick={toggleContent}
+        class="slds-section__title-action"
+    ></lightning-button>
+    <div class={cssClass}>
+        <slot></slot>
+    </div>
+</template>

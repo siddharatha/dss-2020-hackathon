@@ -1,0 +1,87 @@
+<!--
+	@File Name          : opportunityHistoricalWinRate.html
+	@Description        : 
+	@Author             : Siddharatha Nagavarapu (sesa206167)
+	@Group              : 
+	@Last Modified By   : Siddharatha Nagavarapu (sesa206167)
+	@Last Modified On   : 1/21/2020, 6:18:02 PM
+	@Modification Log   : 
+	Ver       Date            Author      		    Modification
+	1.0    9/24/2019   Siddharatha Nagavarapu (sesa206167)     Initial Version
+-->
+<template>
+    <lightning-card>
+        <c-hide-show-content label="HISTORICAL WIN RATE">
+            <ul class="slds-has-dividers_bottom-space">
+                <template if:true={hwr_account}>
+                    <li class="slds-item">
+                        <c-win-rate
+                            label={hwr_account.label}
+                            message={hwr_account.message}
+                            commercialhitrate={hwr_account.commercialhitrate}
+                            tenderhitrate={hwr_account.tenderhitrate}
+                            successrate={hwr_account.successrate}
+                            href={hwr_account.href}
+                            last-closed-opportunity={hwr_account.lastClosedOpportunity}
+                        >
+                        </c-win-rate>
+                    </li>
+                </template>
+                <template if:true={hwr_ms}>
+                    <li class="slds-item">
+                        <c-win-rate
+                            message={hwr_ms.message}
+                            commercialhitrate={hwr_ms.commercialhitrate}
+                            tenderhitrate={hwr_ms.tenderhitrate}
+                            successrate={hwr_ms.successrate}
+                            label={hwr_ms.label}
+                            href={hwr_ms.href}
+                        ></c-win-rate>
+                    </li>
+                </template>
+                <template if:true={hwr_euai}>
+                    <li class="slds-item">
+                        <c-win-rate
+                            message={hwr_euai.message}
+                            commercialhitrate={hwr_euai.commercialhitrate}
+                            tenderhitrate={hwr_euai.tenderhitrate}
+                            successrate={hwr_euai.successrate}
+                            label={hwr_euai.label}
+                            href={hwr_euai.href}
+                            last-closed-opportunity={hwr_euai.lastClosedOpportunity}
+                        >
+                        </c-win-rate>
+                    </li>
+                </template>
+                <template if:true={historicalWinRateValueChainPlayers}>
+                    <c-hide-show-content label="VALUE CHAIN PLAYERS">
+                        <li class="slds-item">
+                            <ul class="slds-has-dividers_bottom-space">
+                                <template
+                                    for:each={historicalWinRateValueChainPlayers}
+                                    for:item="historicalWinRateValueChainPlayer"
+                                >
+                                    <li
+                                        class="slds-item"
+                                        key={historicalWinRateValueChainPlayer.label}
+                                    >
+                                        <c-win-rate
+                                            message={historicalWinRateValueChainPlayer.message}
+                                            commercialhitrate={historicalWinRateValueChainPlayer.commercialhitrate}
+                                            tenderhitrate={historicalWinRateValueChainPlayer.tenderhitrate}
+                                            successrate={historicalWinRateValueChainPlayer.successrate}
+                                            label={historicalWinRateValueChainPlayer.label}
+                                            href={historicalWinRateValueChainPlayer.href}
+                                            last-closed-opportunity={historicalWinRateValueChainPlayer.lastClosedOpportunity}
+                                        >
+                                        </c-win-rate>
+                                    </li>
+                                </template>
+                            </ul>
+                        </li>
+                    </c-hide-show-content>
+                </template>
+            </ul>
+        </c-hide-show-content>
+    </lightning-card>
+</template>

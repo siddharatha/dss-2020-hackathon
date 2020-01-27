@@ -1,0 +1,45 @@
+<!--
+  @File Name          : localVoicePhoneNumberSelector.html
+  @Description        : 
+  @Author             : Siddharatha Nagavarapu (sesa206167)
+  @Group              : 
+  @Last Modified By   : Siddharatha Nagavarapu (sesa206167)
+  @Last Modified On   : 1/6/2020, 6:28:47 AM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    1/6/2020   Siddharatha Nagavarapu (sesa206167)     Initial Version
+-->
+<template>
+    <div class="slds-p-around_x-small smallbox">
+        <div class="slds-p-around_x-small">
+            <lightning-combobox
+                name="country"
+                label="Country"
+                value={selectedCountry}
+                placeholder="Select Target Country"
+                options={countries}
+                onchange={handleCountryChange}
+            ></lightning-combobox>
+            <template if:true={hasCategories}>
+                <lightning-combobox
+                    name="category"
+                    label="Target Category"
+                    value={selectedCategory}
+                    placeholder="Select Target Category"
+                    options={categories}
+                    onchange={handleCategoryChange}
+                ></lightning-combobox>
+            </template>
+            <template if:true={hasPhoneNumbers}>
+                <lightning-combobox
+                    name="phonenumber"
+                    label="Reference PhoneNumber"
+                    value={selectedPhoneNumber}
+                    placeholder="Select Reference PhoneNumber"
+                    options={phoneNumbersList}
+                    onchange={handlePhoneNumberChange}
+                ></lightning-combobox>
+            </template>
+        </div>
+    </div>
+</template>

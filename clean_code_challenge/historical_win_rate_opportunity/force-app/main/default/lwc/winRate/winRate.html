@@ -1,0 +1,114 @@
+<!--
+  @File Name          : winRate.html
+  @Description        : 
+  @Author             : Siddharatha Nagavarapu (sesa206167)
+  @Group              : 
+  @Last Modified By   : Siddharatha Nagavarapu (sesa206167)
+  @Last Modified On   : 1/21/2020, 8:04:25 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    10/16/2019   Siddharatha Nagavarapu (sesa206167)     Initial Version
+-->
+<template>
+    <lightning-tile label={label} href={href}>
+        <c-description-list>
+            <template if:true={commercialhitrate}>
+                <c-description-list-item
+                    label="Commercial Hit Rate"
+                    style="width:100%"
+                >
+                    <lightning-formatted-number
+                        value={commercialhitrate}
+                        format-style="percent"
+                        maximum-fraction-digits="1"
+                    ></lightning-formatted-number>
+                </c-description-list-item>
+            </template>
+            <template if:true={tenderhitrate}>
+                <c-description-list-item
+                    label="Tender Hit Rate"
+                    style="width:100%"
+                >
+                    <lightning-formatted-number
+                        value={tenderhitrate}
+                        format-style="percent"
+                        maximum-fraction-digits="1"
+                    >
+                    </lightning-formatted-number>
+                </c-description-list-item>
+            </template>
+            <template if:true={successrate}>
+                <c-description-list-item
+                    label="Success Rate"
+                    style="width:100%"
+                >
+                    <lightning-formatted-number
+                        value={successrate}
+                        format-style="percent"
+                        maximum-fraction-digits="1"
+                    >
+                    </lightning-formatted-number>
+                </c-description-list-item>
+            </template>
+            <template if:true={message}>
+                <c-description-list-item label="Message" style="width:100%">
+                    <p class="">{message}</p>
+                </c-description-list-item>
+            </template>
+        </c-description-list>
+        <c-description-list if:true={lastClosedOpportunity}>
+            <c-description-list-item
+                style="width:100%"
+                label="Last Closed Opportunity"
+            >
+                <lightning-tile
+                    style="max-width:200px"
+                    title={lastClosedOpportunity.Name}
+                    label={lastClosedOpportunity.Name}
+                    href={lastClosedOpportunityHref}
+                >
+                    <c-description-list>
+                        <c-description-list-item
+                            style="width:100%"
+                            label="Close Date"
+                        >
+                            <lightning-formatted-date-time
+                                value={lastClosedOpportunity.CloseDate}
+                            ></lightning-formatted-date-time>
+                        </c-description-list-item>
+                        <c-description-list-item
+                            label="Status"
+                            style="width:100%"
+                        >
+                            <p style="font-size:85%;">
+                                {lastClosedOpportunity.Status__c}
+                            </p>
+                        </c-description-list-item>
+                        <c-description-list-item
+                            label="Amount"
+                            style="width:100%"
+                        >
+                            <lightning-formatted-number
+                                format-style="currency"
+                                value={lastClosedOpportunity.Amount}
+                                currency-code={lastClosedOpportunity.CurrencyISOCode}
+                                currency-display-as="symbol"
+                            >
+                            </lightning-formatted-number>
+                        </c-description-list-item>
+                    </c-description-list>
+                </lightning-tile>
+            </c-description-list-item>
+        </c-description-list>
+        <template if:true={lastClosedOpportunityMessage}>
+            <c-description-list>
+                <c-description-list-item
+                    label="Last Closed Opportunity Message"
+                    style="width:100%"
+                >
+                    {lastClosedOpportunityMessage}
+                </c-description-list-item>
+            </c-description-list>
+        </template>
+    </lightning-tile>
+</template>

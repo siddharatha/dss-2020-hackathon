@@ -1,0 +1,25 @@
+<!--
+  @File Name          : descriptionListItem.html
+  @Description        : 
+  @Author             : Siddharatha Nagavarapu (sesa206167)
+  @Group              : 
+  @Last Modified By   : Siddharatha Nagavarapu (sesa206167)
+  @Last Modified On   : 1/21/2020, 7:52:45 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    1/21/2020   Siddharatha Nagavarapu (sesa206167)     Initial Version
+-->
+<template>
+    <lightning-layout horizontal-align="spread">
+        <lightning-layout-item flexibility="auto">
+            <p title={label}>
+                {label}
+            </p>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow">
+            <p class="slds-text-align_right">
+                <slot></slot>
+            </p>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
